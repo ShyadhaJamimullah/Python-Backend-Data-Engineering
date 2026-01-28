@@ -1,0 +1,5 @@
+File handling is used to:
+To store data permanently, even after the program ends.
+To access external files like .txt, .csv, .json, etc.
+To process large files efficiently without using much memory.
+To automate tasks like reading configs or saving outputs.
