@@ -73,6 +73,19 @@ def sholarship_eligibilty(sid):
     if age<17 or age>23 or gpa<7.0:
         raise NotEligibleForScholarship("Student not eligible for scholarship")
     return "\nEligible for Scholarship"
+
+def get_my_details(logged_in_sid, requested_sid):
+    students = load_students()
+
+    if logged_in_sid != requested_sid:
+        raise PermissionError("Access denied: you can view only your own details")
+
+    if logged_in_sid not in students:
+        raise StudentNotFound("Student not found")
+
+    return students[logged_in_sid]
+
+
     
 
 
