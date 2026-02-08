@@ -13,7 +13,24 @@ def dump_inventory(inventory):
     with open(file,"w") as f:
         json.dump(inventory,f)
 
+#analytical functions
+    
+def total_products(inventory):
+    return len(inventory)
 
+def total_stock_quantity(inventory):
+    total = 0
+    for product in inventory.values():
+        if product["is_active"]:
+            total += product["quantity"]
+    return total
+
+def total_inventory_value(inventory):
+    total = 0
+    for product in inventory.values():
+        if product["is_active"]:
+            total += product["price"] * product["quantity"]
+    return total
 
 class ProductInventory:
 
@@ -23,6 +40,7 @@ class ProductInventory:
         self.price=price
         self.quantity=quantity
         self.is_active=is_active
+
 
     def in_stock(self):
         return self.quantity>0
@@ -61,8 +79,10 @@ class ProductInventory:
             data["is_active"]
         )
 
-    
-    
+
+
+
+
 def inventorySystem():
     while True: 
         print("INVENTORY MANAGER")
@@ -72,7 +92,8 @@ def inventorySystem():
         print("4. Increase Stock")
         print("5. Decrease Stock")
         print("6. Delete Product")
-        print("7. Exit")
+        print("7. View Stock Analytics")
+        print("8. Exit")
 
         choice=input("Enter choice (e.g. 1): ")
 
@@ -155,7 +176,13 @@ def inventorySystem():
                 inventory[product_id]=product.to_dict()
                 dump_inventory(inventory)
 
-            elif choice=="7":
+            elif choice == "7":
+                print("Total products:", total_products(inventory))
+                print("Total stock:", total_stock_quantity(inventory))
+                print("Total inventory value:", total_inventory_value(inventory))
+
+
+            elif choice=="8":
                 print("Exiting....")
                 break
 
