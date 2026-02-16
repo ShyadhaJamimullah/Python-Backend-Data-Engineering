@@ -27,16 +27,14 @@ while True:
         product=input("Enter the product to add to cart:")
         if product not in items or items[product]["Quantity"]==0:
             print("Product is out of stock")
-        else:
-            print(f"{product} added to cart")
+        else: 
             
-            buy=input("Do you want to buy (yes/no):").lower()
-            if buy=="yes":
-                aval_quantity=items[product]["Quantity"]
-                quant_wanna_buy=int(input(f"Enter the quantity: (Quantity available ={aval_quantity})"))
-                total=items[product]["Price"]*quant_wanna_buy
-                Grand_total+=total
-                items[product]["Quantity"]-=quant_wanna_buy
+            aval_quantity=items[product]["Quantity"]
+            quant_wanna_buy=int(input(f"Enter the quantity: (Quantity available ={aval_quantity})"))
+            print(f"{product} added to cart")
+            total=items[product]["Price"]*quant_wanna_buy
+            Grand_total+=total
+            items[product]["Quantity"]-=quant_wanna_buy
 
     elif choice=="4":
         product=input("Enter the product you wnat to remove from the list:")
