@@ -1,0 +1,18 @@
+[
+    {
+        "region":"Central",
+        "sales":492646.9132
+    },
+    {
+        "region":"East",
+        "sales":669518.726
+    },
+    {
+        "region":"South",
+        "sales":389151.459
+    },
+    {
+        "region":"West",
+        "sales":710219.6845
+    }
+]

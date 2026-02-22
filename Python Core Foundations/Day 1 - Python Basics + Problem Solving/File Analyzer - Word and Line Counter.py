@@ -1,0 +1,8 @@
+file=open("file.txt", "r")
+skim=file.read()
+lines=skim.splitlines()
+line_count=len(lines)
+words=skim.split()
+word_count=len(words)
+print("Line count:",line_count)
+print("Word_count:",word_count)

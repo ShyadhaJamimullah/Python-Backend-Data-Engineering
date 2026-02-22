@@ -1,0 +1,38 @@
+INFO | 2026-02-07 23:46:29,835 | Automation completed
+INFO | 2026-02-07 23:46:29,845 | Files found: 0
+INFO | 2026-02-07 23:46:45,938 | Automation completed
+INFO | 2026-02-07 23:46:45,938 | Files found: 0
+INFO | 2026-02-07 23:47:46,844 | Automation completed
+INFO | 2026-02-07 23:47:46,844 | Files found: 0
+INFO | 2026-02-07 23:49:03,490 | Automation completed
+INFO | 2026-02-07 23:49:03,498 | Files found: 0
+INFO | 2026-02-07 23:49:16,501 | Automation completed
+INFO | 2026-02-07 23:49:16,501 | Files found: 0
+INFO | 2026-02-08 00:00:05,339 | Automation completed
+INFO | 2026-02-08 00:00:05,339 | Files found: 6
+INFO | 2026-02-08 00:00:05,361 | Moved airtravel.csv to processed_data\sales
+INFO | 2026-02-08 00:00:05,361 | Processed CSV airtravel.csv | Total: 0.0
+INFO | 2026-02-08 00:00:05,363 | Moved sample1.txt to processed_data\text
+INFO | 2026-02-08 00:00:05,363 | Processed TEXT sample1.txt
+INFO | 2026-02-08 00:00:05,363 | Moved addresses.csv to processed_data\sales
+INFO | 2026-02-08 00:00:05,365 | Processed CSV addresses.csv | Total: 0.0
+INFO | 2026-02-08 00:00:05,365 | Moved sample2.txt to processed_data\text
+INFO | 2026-02-08 00:00:05,365 | Processed TEXT sample2.txt
+INFO | 2026-02-08 00:00:05,370 | Moved sample.json to processed_data\logs
+INFO | 2026-02-08 00:00:05,372 | Processed JSON sample.json
+INFO | 2026-02-08 00:00:05,372 | Moved users.json to processed_data\logs
+INFO | 2026-02-08 00:00:05,372 | Processed JSON users.json
+INFO | 2026-02-08 00:02:45,281 | Automation completed
+INFO | 2026-02-08 00:02:45,281 | Files found: 6
+INFO | 2026-02-08 00:02:45,289 | Moved sample.json to processed_data\logs
+INFO | 2026-02-08 00:02:45,289 | Processed JSON sample.json
+INFO | 2026-02-08 00:02:45,289 | Moved addresses.csv to processed_data\sales
+INFO | 2026-02-08 00:02:45,289 | Processed CSV addresses.csv | Total: 2000.0
+INFO | 2026-02-08 00:02:45,289 | Moved sample1.txt to processed_data\text
+INFO | 2026-02-08 00:02:45,289 | Processed TEXT sample1.txt
+INFO | 2026-02-08 00:02:45,289 | Moved airtravel.csv to processed_data\sales
+INFO | 2026-02-08 00:02:45,289 | Processed CSV airtravel.csv | Total: 4080.0
+INFO | 2026-02-08 00:02:45,289 | Moved sample2.txt to processed_data\text
+INFO | 2026-02-08 00:02:45,289 | Processed TEXT sample2.txt
+INFO | 2026-02-08 00:02:45,289 | Moved users.json to processed_data\logs
+INFO | 2026-02-08 00:02:45,289 | Processed JSON users.json

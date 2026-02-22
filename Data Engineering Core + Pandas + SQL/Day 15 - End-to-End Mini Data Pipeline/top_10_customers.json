@@ -1,0 +1,42 @@
+[
+    {
+        "customer_name":"Sean Miller",
+        "sales":25043.05
+    },
+    {
+        "customer_name":"Tamara Chand",
+        "sales":19052.218
+    },
+    {
+        "customer_name":"Raymond Buch",
+        "sales":15117.339
+    },
+    {
+        "customer_name":"Tom Ashbrook",
+        "sales":14595.62
+    },
+    {
+        "customer_name":"Adrian Barton",
+        "sales":14473.571
+    },
+    {
+        "customer_name":"Ken Lonsdale",
+        "sales":14175.229
+    },
+    {
+        "customer_name":"Sanjit Chand",
+        "sales":14142.334
+    },
+    {
+        "customer_name":"Hunter Lopez",
+        "sales":12873.298
+    },
+    {
+        "customer_name":"Sanjit Engle",
+        "sales":12209.438
+    },
+    {
+        "customer_name":"Christopher Conant",
+        "sales":12129.072
+    }
+]
