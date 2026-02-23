@@ -11,7 +11,7 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.responses import PlainTextResponse
 
 
-from auth import verify_token
+from auth import create_access_token,verify_jwt
 from database import engine,sessionlocal
 import schemas
 import models
@@ -29,6 +29,26 @@ def get_db():
         yield db
     finally:
         db.close()
+
+@app.post("/v1/auth/token")
+def login():
+    """
+    Temporary login endpoint to generate JWT.
+    Replace with DB-based login later.
+    """
+    token = create_access_token({"sub": "etl_user"})
+    return {
+        "access_token": token,
+        "token_type": "bearer"
+    }
+
+@app.get("/protected")
+def protected_route(payload: dict = Depends(verify_jwt)):
+    return {
+        "message": "Access granted",
+        "user": payload["sub"]
+    }
+
 
 limiter=Limiter(key_func=get_remote_address)
 app.state.limiter=limiter
@@ -57,7 +77,7 @@ def upload_hr_csv(
     request: Request,
     file:UploadFile=File(...),
     db:Session=Depends(get_db),
-    user:str=Depends(verify_token)):
+    user:str=Depends(verify_jwt)):
   
     df=pd.read_csv(file.file)
 
