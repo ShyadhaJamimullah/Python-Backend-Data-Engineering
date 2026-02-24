@@ -1,4 +1,4 @@
-from fastapi import FastAPI,UploadFile,File,Depends,Request
+from fastapi import FastAPI,UploadFile,File,Depends,Request,HTTPException,status
 from sqlalchemy.orm import Session
 from sqlalchemy import func,Integer,case
 import pandas as pd
@@ -11,11 +11,12 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.responses import PlainTextResponse
 
 
-from auth import create_access_token,verify_jwt
+from auth import create_access_token,verify_jwt,hashed_password,verify_password
 from database import engine,sessionlocal
+from schemas import LoginRequest
 import schemas
 import models
-from models import Employee
+from models import Employee,User
 
 logging.basicConfig(filename="api.log",level=logging.INFO,format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -30,17 +31,29 @@ def get_db():
     finally:
         db.close()
 
+@app.post("/v1/auth/register")
+def register(data: LoginRequest, db: Session = Depends(get_db)):
+    hashed_pw=hashed_password(data.password)
+    user=User(username=data.username,hashed_password=hashed_pw)
+    db.add(user)
+    db.commit()
+    return {"message":"User created"}
+
 @app.post("/v1/auth/token")
-def login():
-    """
-    Temporary login endpoint to generate JWT.
-    Replace with DB-based login later.
-    """
-    token = create_access_token({"sub": "etl_user"})
+def login(data:LoginRequest,db:Session=Depends(get_db)):
+    user=db.query(User).filter(User.username==data.username).first()
+    if not user:
+        raise HTTPException(status_code=401,detail="Invalid credentials")
+    
+    if not verify_password(data.password,user.hashed_password):
+        raise HTTPException(status_code=401,detail="Invalid credentials")
+
+    token = create_access_token({"sub": user.username})
     return {
         "access_token": token,
         "token_type": "bearer"
     }
+
 
 @app.get("/protected")
 def protected_route(payload: dict = Depends(verify_jwt)):
